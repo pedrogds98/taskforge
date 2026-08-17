@@ -1,13 +1,3 @@
-// TaskForge v0 - projeto do curso "Do Código ao Contrato"
-// Aula 01.1: Java, a JVM e as primeiras variáveis.
-//
-// Este é o ponto de partida. Durante a aula você constrói este código,
-// e no desafio você evolui ele (veja COMO-ENTREGAR.md).
-//
-// Como rodar:
-//   - No IntelliJ: abra este arquivo e clique em Run.
-//   - No terminal: java TaskForge.java
-
 void main() {
     int option = 0;
 
@@ -22,7 +12,6 @@ void main() {
         IO.println("OPÇÃO 3 SAIR");
         option = Integer.parseInt(IO.readln("DIGITE UMA OPÇÃO: "));
 
-
         switch (option) {
 
             case 1:
@@ -36,6 +25,10 @@ void main() {
             case 2:
                 IO.println("Nome da Tarefa" + name);
                 IO.println("Descrição da Tarefa:" + descritor);
+                //Só travei aqui no uso (for).
+                //Ainda estou com dificuldades nessa parte mas acredito
+                //que o resto do código esteja funcionando.
+
                 for (int i = 1; priority <= i; i++;);
                 IO.print("*");
                     IO.println("Prioridade da Tarefa:" + priority);
