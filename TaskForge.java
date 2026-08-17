@@ -1,46 +1,53 @@
 void main() {
-    int option = 0;
+    IO.println("=== TaskForge v0 ===");
 
-    String name = "";
-    String descritor = "";
-    int priority = 0;
+    String nome = IO.readln("Nome da tarefa: ");
+    String descricao = IO.readln("Descrição: ");
 
-    while (option !=3) {
-        IO.println("=== MENU PRINCIPAL ===");
-        IO.println("OPÇÂO 1 CRIAR TAREFA");
-        IO.println("OPÇÂO 2 VER RESUMO");
-        IO.println("OPÇÃO 3 SAIR");
-        option = Integer.parseInt(IO.readln("DIGITE UMA OPÇÃO: "));
-
-        switch (option) {
-
-            case 1:
-                IO.println("CRAR TAREFA: ");
-                name = IO.readln("Nome: ");
-                descritor = IO.readln("Descrição: ");
-                priority = Integer.parseInt(IO.readln("Prioridade (1 a 5): "));
-                IO.println("TAREFA CRIADA COM SUCESSO!");
-                break;
-
-            case 2:
-                IO.println("Nome da Tarefa" + name);
-                IO.println("Descrição da Tarefa:" + descritor);
-                //Só travei aqui no uso (for).
-                //Ainda estou com dificuldades nessa parte mas acredito
-                //que o resto do código esteja funcionando.
-
-                for (int i = 1; priority <= i; i++;);
-                IO.print("*");
-                    IO.println("Prioridade da Tarefa:" + priority);
-                break;
-
-
-            case 3:
-                IO.println("FIM! ATÈ A PRÓXIMA!");
-                break;
-
-            default:
-                IO.println("OPÇÂO INVÁLIDA");
+    int prioridade = 0;
+    do {
+        prioridade = Integer.parseInt(IO.readln("Prioridade (1 a 5): "));
+        if (prioridade < 1 || prioridade > 5) {
+            IO.println("Prioridade inválida.");
         }
+    } while (prioridade < 1 || prioridade > 5);
+
+    IO.println();
+    String responsavel = IO.readln("Responsável: ");
+    double horasEstimadas = Double.parseDouble(IO.readln("Horas estimadas: "));
+
+    int status;
+    do {
+        IO.println("Escolha uma opção: ");
+        IO.println("1 - Pendente");
+        IO.println("2 - Em Andamento");
+        IO.println("3 - Concluída");
+        IO.println("4 - Cancelada");
+        status = Integer.parseInt(IO.readln());
+        if (status < 1 || status > 4) {
+            IO.println("Status inválido.");
+        }
+    } while (status < 1 || status > 4);
+
+    IO.println("");
+    IO.println("------ TAREFA CRIADA ------");
+    IO.println("Tarefa:     " + nome);
+    IO.println("Descrição:  " + descricao);
+    IO.print("Prioridade: ");
+    for (int aux = 0; aux < prioridade; aux++) {
+        IO.print("*");
     }
+    IO.println();
+
+    String statusNome = "";
+    switch (status) {
+        case 1 -> statusNome = "Pendente";
+        case 2 -> statusNome = "Em Andamento";
+        case 3 -> statusNome = "Concluída";
+        case 4 -> statusNome = "Cancelada";
+        default -> statusNome = "Status Inválido";
+    }
+
+    IO.println("Status:    " + statusNome);
+    IO.println("---------------------------");
 }
