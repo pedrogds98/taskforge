@@ -3,15 +3,27 @@ import src.Tarefa;
 void main() {
     IO.println("=== TaskForge v0 ===");
 
-    Tarefa tarefa = new Tarefa("Nome Tarefa", "descricao; Descricao Tarefa", 1, "Eu mesmo", 2, 1);
+    Tarefa tarefa = new Tarefa("Aprender classes", "Dentro do JAVA", 1,
+            "Eu", 2, 1);
 
-    Tarefa tarefa2 = new Tarefa("Nome tarefa dificil", "descricao; Tarefa dificil", 2, "Todo mundo", 3, 2);
+    Tarefa tarefa2 = new Tarefa ("Nome tarefa dificil", "descricao; Tarefa dificil", 2,
+            "Todo mundo", 3, 2);
+
+    Tarefa tarefaDoLander = new Tarefa ("Criando objeto", "Bem complexo", 1,
+            "Pedro", 5, 2);
+
+    Tarefa tarefaFinal = new Tarefa("tarefa final", "menos complexo", 4, "Eu",
+            1, 1);
 
     IO.println("Tarefa criada; " + tarefa.getNome());
 
     IO.println("tarefa nova" + tarefa2.getNome());
 
-f
+    tarefaFinal.resumo();
+
+    tarefaDoLander.imprimirCartao();
+
+
     String nome = IO.readln("Nome da tarefa: ");
     String descricao = IO.readln("Descrição: ");
 
