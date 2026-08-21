@@ -2,10 +2,10 @@ package src.exercicios.modulo01.aula02;
 
 public class exercicio05 {
     void main (){
-        int nota;
+        float nota;
 
         IO.println("== AVALIADOR DE NOTAS ==");
-        nota = Integer.parseInt(IO.readln("Digite a nota do aluno: "));
+        nota = Float.parseFloat(IO.readln("Digite a nota do aluno: "));
 
         if (nota >= 7) {
             IO.println("APROVADO");
