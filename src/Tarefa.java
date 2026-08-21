@@ -8,15 +8,43 @@ public class Tarefa {
     private double horasEstimadas;
     private int status;
 
-    public Tarefa(String nome, String descricao, int prioridade, String responsavel, double horasEstimadas, int status) {
+    public void resumo(){
+        IO.println(nome);
+        IO.println(descricao);
+        IO.println(prioridade);
+        IO.println(responsavel);
+        IO.println(horasEstimadas);
+        IO.println(status);
+    }
+
+    public void imprimirCartao(){
+        IO.println(prioridade);
+
+        switch(status){
+            case 1:
+                IO.println("Pendente");
+            case 2:
+                IO.println("Em andamento");
+            case 3:
+                IO.println("Concluída");
+            case 4:
+                IO.println("Cancelada");
+            default:
+                IO.println("Status Inválido");
+
+        }
+    }
+
+    public Tarefa(String nome, String descricao, int prioridade, String responsavel, int horasEstimadas, int status){
         this.nome = nome;
         this.descricao = descricao;
         this.prioridade = prioridade;
         this.responsavel = responsavel;
         this.horasEstimadas = horasEstimadas;
         this.status = status;
+
     }
-f
+
     public String getNome() {
         return nome;
     }
@@ -25,28 +53,12 @@ f
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public int getStatus() {
+        return status;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public int getPrioridade() {
-        return prioridade;
-    }
-
-    public void setPrioridade(int prioridade) {
-        this.prioridade = prioridade;
-    }
-
-    public String getResponsavel() {
-        return responsavel;
-    }
-
-    public void setResponsavel(String responsavel) {
-        this.responsavel = responsavel;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public double getHorasEstimadas() {
@@ -57,11 +69,27 @@ f
         this.horasEstimadas = horasEstimadas;
     }
 
-    public int getStatus() {
-        return status;
+    public String getResponsavel() {
+        return responsavel;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
+    }
+
+    public int getPrioridade() {
+        return prioridade;
+    }
+
+    public void setPrioridade(int prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
