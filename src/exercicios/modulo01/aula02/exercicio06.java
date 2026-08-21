@@ -1,15 +1,15 @@
 package src.exercicios.modulo01.aula02;
 
 public class exercicio06 {
-    void main (){
+    void main() {
         int numero = Integer.parseInt(IO.readln("Digite um número: "));
-    int soma = 0;
+        int soma = 0;
 
 
-    for (int i = 1; i <= 5; i++){
-        soma = i + soma;
+        for (int i = 1; i <= 5; i++) {
+            soma = i + soma;
 
-    }
-    IO.println(soma);
+        }
+        IO.println(soma);
     }
 }
