@@ -14,10 +14,10 @@ public class TarefaComPrazo extends Tarefa implements Notificavel {
         return "tarefa com Prazo";
     }
 
-    public void resumo() {
-        super.resumo();
-        IO.println("Tempo limite: " + this.tempoLimite);
-    }
+//    public void resumo() {
+//        super.resumo();
+//        IO.println("Tempo limite: " + this.tempoLimite);
+//    }
 
     public String notificar() {
         return "Lembrete: '" + getNome() + "' vence em " + tempoLimite + " horas!";

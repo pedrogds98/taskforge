@@ -22,7 +22,7 @@ public class Tarefa {
         this.status = status;
     }
 
-    public void resumo() {
+    public Object resumo() {
         IO.println("Tarefa: " + this.nome);
         IO.println("Descricão: " + this.descricao);
         IO.println("Prioridade: " + this.prioridade);
