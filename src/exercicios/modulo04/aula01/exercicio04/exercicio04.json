@@ -1,0 +1,19 @@
+{
+  "id": 7,
+  "nome": "Revisar PR",
+  "responsavel": {
+    "nome": "Karol",
+    "email": "Karol@gmail.com",
+    "habilidades": [
+      "java",
+      "Git",
+      "SQL"
+    ]
+  }
+}
+
+
+
+
+
+
