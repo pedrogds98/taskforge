@@ -1,5 +1,7 @@
 //package src;
 //
+//import src.exercicios.modulo02.aula01.desafio.Tarefa;
+//
 //public class TarefaComPrazo extends Tarefa implements Notificavel {
 //
 //    double tempoLimite;
