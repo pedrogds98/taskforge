@@ -1,4 +1,4 @@
-package br.com.docodigoaocontrato.taskforge.controler;
+package br.com.docodigoaocontrato.taskforge.Exercicios.modulo05.Aula01;
 
 import br.com.docodigoaocontrato.taskforge.service.LeitoService;
 import lombok.AllArgsConstructor;

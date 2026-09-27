@@ -4,13 +4,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Categoria {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -19,7 +25,6 @@ public class Categoria {
 
     private String nome;
     private boolean ativa;
-
 
 
 

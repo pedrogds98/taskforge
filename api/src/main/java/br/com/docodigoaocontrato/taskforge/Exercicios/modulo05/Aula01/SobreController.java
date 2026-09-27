@@ -1,4 +1,4 @@
-package br.com.docodigoaocontrato.taskforge.controler;
+package br.com.docodigoaocontrato.taskforge.Exercicios.modulo05.Aula01;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
