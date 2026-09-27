@@ -1,0 +1,18 @@
+{
+  "nomeDoCatalogo": "StreamFlix",
+  "total": 2,
+  "midias": [
+    {
+      "titulo": "Duna",
+      "nota": 8.7,
+      "genero": "ACAO",
+      "duracaoMin": 155
+    },
+    {"titulo":"café com dodigo",
+      "nota": "9.1",
+      "genero": "tecnologia",
+      "duracaoMin": 28,
+      "min"
+    }
+  ]
+}
