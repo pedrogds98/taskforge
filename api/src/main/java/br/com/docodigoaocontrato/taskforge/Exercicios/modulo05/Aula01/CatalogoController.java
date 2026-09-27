@@ -1,4 +1,4 @@
-package br.com.docodigoaocontrato.taskforge.controler;
+package br.com.docodigoaocontrato.taskforge.Exercicios.modulo05.Aula01;
 
 import br.com.docodigoaocontrato.taskforge.dto.CatalogoDTO;
 import br.com.docodigoaocontrato.taskforge.dto.MidiaDTO;
@@ -13,9 +13,9 @@ import static br.com.docodigoaocontrato.taskforge.dto.MidiaDTO.Genero.TECNOLOGIA
 
 @RestController
 public class CatalogoController {
-    MidiaDTO midia1 = new MidiaDTO("Duna", 8.7, ACAO, 155);
-    MidiaDTO midia2 = new MidiaDTO("Café com código", 9.1, TECNOLOGIA, 28);
-    MidiaDTO midia3 = new MidiaDTO("Tropa de Elite", 8.0, ACAO, 115);
+    MidiaDTO midia1 = new MidiaDTO("Duna", 8.7, ACAO, 155, 2015,14);
+    MidiaDTO midia2 = new MidiaDTO("Café com código", 9.1, TECNOLOGIA, 28,2012,15);
+    MidiaDTO midia3 = new MidiaDTO("Tropa de Elite", 8.0, ACAO, 115, 14,15);
 
 
 
@@ -28,5 +28,4 @@ public class CatalogoController {
 
         return new CatalogoDTO("StreamFlix", Catalogo.size(),Catalogo);
     }
-
 }

@@ -1,16 +1,20 @@
 package br.com.docodigoaocontrato.taskforge.dto;
 
+
+
 public class MidiaDTO {
     private String titulo;
     private double nota;
     private Genero genero;
     private int duracaoMin;
 
-    public MidiaDTO(String titulo, double nota, Genero genero, int duracaoMin){
+
+    public MidiaDTO(String titulo, double nota, Genero genero, int duracaoMin, int anoLancamento, int anoLancamento1){
         this.titulo = titulo;
         this.nota = nota;
         this.genero = genero;
         this.duracaoMin = duracaoMin;
+
     }
 
     public enum Genero {

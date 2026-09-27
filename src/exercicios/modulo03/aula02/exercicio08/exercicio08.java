@@ -11,10 +11,8 @@ public class exercicio08 {
     Missao missao5 = new Missao("estudarJava5");
     Missao missao6 = new Missao("estudarJava 6");
 
-
     void main() {
         List<Missao> ListaMissao = new ArrayList<>();
-
         ListaMissao.add(missao1);
         ListaMissao.add(missao2);
         ListaMissao.add(missao3);
@@ -22,13 +20,11 @@ public class exercicio08 {
         ListaMissao.add(missao5);
         ListaMissao.add(missao6);
 
-        try{ IO.println(ListaMissao.get(6).nome);
-
-        }catch(IndexOutOfBoundsException e){
+        try {
+            IO.println(ListaMissao.get(6).nome);
+        } catch (IndexOutOfBoundsException e) {
             IO.println("Essa posição não existe. A lista tem 6 tarefas");
         }
-
-
     }
 }
 

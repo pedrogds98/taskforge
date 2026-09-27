@@ -1,7 +1,7 @@
 package br.com.docodigoaocontrato.taskforge.dto;
-
-
 import java.util.List;
+
+
 
 public class CatalogoDTO {
     private String nomeDoCatalogo;
