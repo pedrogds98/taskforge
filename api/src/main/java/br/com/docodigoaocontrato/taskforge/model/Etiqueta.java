@@ -9,27 +9,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 
-
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Categoria {
+public class Etiqueta {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
-    private boolean ativa;
-
-    public Categoria(String nome, boolean ativa) {
-        this.nome = nome;
-        this.ativa = ativa;
-    }
-
-    public void map(Object toDto) {
-    }
+    private String cor;
 }

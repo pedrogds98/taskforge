@@ -1,15 +1,15 @@
 package br.com.docodigoaocontrato.taskforge.Exercicios.modulo05.Aula01;
 
-import br.com.docodigoaocontrato.taskforge.dto.CatalogoDTO;
-import br.com.docodigoaocontrato.taskforge.dto.MidiaDTO;
+import br.com.docodigoaocontrato.taskforge.Exercicios2.CatalogoDTO;
+import br.com.docodigoaocontrato.taskforge.Exercicios2.MidiaDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static br.com.docodigoaocontrato.taskforge.dto.MidiaDTO.Genero.ACAO;
-import static br.com.docodigoaocontrato.taskforge.dto.MidiaDTO.Genero.TECNOLOGIA;
+import static br.com.docodigoaocontrato.taskforge.Exercicios2.MidiaDTO.Genero.ACAO;
+import static br.com.docodigoaocontrato.taskforge.Exercicios2.MidiaDTO.Genero.TECNOLOGIA;
 
 @RestController
 public class CatalogoController {

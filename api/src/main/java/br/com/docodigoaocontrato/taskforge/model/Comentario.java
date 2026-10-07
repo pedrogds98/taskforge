@@ -1,5 +1,6 @@
 package br.com.docodigoaocontrato.taskforge.model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,27 +10,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
-
-@Getter
-@Setter
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Categoria {
+@Getter
+@Setter
+public class Comentario {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
-    private boolean ativa;
+    private String descricao;
+    private String autor;
 
-    public Categoria(String nome, boolean ativa) {
-        this.nome = nome;
-        this.ativa = ativa;
-    }
-
-    public void map(Object toDto) {
-    }
 }

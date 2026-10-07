@@ -2,9 +2,6 @@ package br.com.docodigoaocontrato.taskforge.Exercicios.modulo05.Aula01.Desafio;
 
 import br.com.docodigoaocontrato.taskforge.model.Midia;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

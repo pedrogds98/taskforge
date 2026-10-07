@@ -1,8 +1,9 @@
 package br.com.docodigoaocontrato.taskforge.controler;
 
-import br.com.docodigoaocontrato.taskforge.dto.Tarefa2DTO;
+import br.com.docodigoaocontrato.taskforge.Exercicios2.Tarefa2DTO;
 import br.com.docodigoaocontrato.taskforge.dto.TarefaDTO;
 import br.com.docodigoaocontrato.taskforge.model.Tarefa;
+import br.com.docodigoaocontrato.taskforge.service.TarefaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -63,6 +64,7 @@ public class TarefaControler   {
 
     @DeleteMapping("/tarefas/{id}")
     public ResponseEntity<Void> deletarTarefa (@PathVariable Long id) {
+
         if (!tarefaService.deletartarefa(id)){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

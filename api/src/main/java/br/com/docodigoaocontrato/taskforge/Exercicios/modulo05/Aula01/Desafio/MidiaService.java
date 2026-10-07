@@ -1,5 +1,6 @@
 package br.com.docodigoaocontrato.taskforge.Exercicios.modulo05.Aula01.Desafio;
 
+import br.com.docodigoaocontrato.taskforge.Exercicios2.MidiaDTO;
 import br.com.docodigoaocontrato.taskforge.model.Midia;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +8,6 @@ import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -35,4 +35,8 @@ public class MidiaService {
                 .filter(midia -> midia.getAvaliacao() >= 8.5)
                 .toList();
     }
+
+//    public List<MidiaDTO> listarTodosDto() {
+//        return midiaRepository.findAll();
+//    }
 }
