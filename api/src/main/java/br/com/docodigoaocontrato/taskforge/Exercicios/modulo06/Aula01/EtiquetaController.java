@@ -15,46 +15,44 @@ import java.util.Optional;
 @Getter
 @Setter
 @AllArgsConstructor
-
 public class EtiquetaController {
 
     private final EtiquetaService etiquetaService;
 
     @GetMapping("/etiquetas")
-    public List<Etiqueta> listarEtiqueta(){
+    public List<Etiqueta> listarEtiqueta() {
         return etiquetaService.listarEtiqueta();
     }
 
     @GetMapping("/etiquetas/{id}")
-    public ResponseEntity<Etiqueta> listarEtiquetaId(@PathVariable Long id){
+    public ResponseEntity<Etiqueta> listarEtiquetaId(@PathVariable Long id) {
         Optional<Etiqueta> listaEtiquetas = etiquetaService.listarEtiquetaId(id);
-        if (listaEtiquetas.isEmpty()){
+        if (listaEtiquetas.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(listaEtiquetas.get());
     }
 
     @PostMapping("/etiquetas")
-    public Etiqueta criarEtiqueta (@RequestBody Etiqueta etiqueta){
+    public Etiqueta criarEtiqueta(@RequestBody Etiqueta etiqueta) {
         Etiqueta etiquetaNew = etiquetaService.criarEtiqueta(etiqueta);
         return etiquetaNew;
     }
 
     @PutMapping("/etiquetas/{id}")
-    public ResponseEntity<Etiqueta> atualizarEtiqueta(@PathVariable Long id, @RequestBody Etiqueta etiqueta){
+    public ResponseEntity<Etiqueta> atualizarEtiqueta(@PathVariable Long id, @RequestBody Etiqueta etiqueta) {
         Optional<Etiqueta> etiquetaNova = etiquetaService.atualizarEtiqueta(id, etiqueta);
-        if(etiquetaNova.isEmpty()){
+        if (etiquetaNova.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(etiquetaNova.get());
     }
 
     @DeleteMapping("/etiquetas/{id}")
-    public ResponseEntity<Void> deletarEtiqueta(@PathVariable Long id){
+    public ResponseEntity<Void> deletarEtiqueta(@PathVariable Long id) {
         if (!etiquetaService.deletarEtiqueta(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
 }

@@ -13,7 +13,6 @@ import java.util.Optional;
 @AllArgsConstructor
 @Getter
 @Setter
-
 public class EtiquetaService {
 
     private final EtiquetaRepository etiquetaRepository;
@@ -27,7 +26,7 @@ public class EtiquetaService {
 
     public Optional<Etiqueta> listarEtiquetaId(Long id) {
         Optional<Etiqueta> listaEtiquetaId = etiquetaRepository.findById(id);
-        if (listaEtiquetaId.isEmpty()){
+        if (listaEtiquetaId.isEmpty()) {
             return Optional.empty();
         }
         return listaEtiquetaId;
@@ -41,7 +40,7 @@ public class EtiquetaService {
 
     public Optional<Etiqueta> atualizarEtiqueta(Long id, Etiqueta etiqueta) {
         Optional<Etiqueta> novaEtiqueta = etiquetaRepository.findById(id);
-        if (novaEtiqueta.isEmpty()){
+        if (novaEtiqueta.isEmpty()) {
             return Optional.empty();
         }
         Etiqueta etiqueta1 = novaEtiqueta.get();
@@ -51,12 +50,12 @@ public class EtiquetaService {
     }
 
     public boolean deletarEtiqueta(Long id) {
-        if(!etiquetaRepository.existsById(id)){
+        if (!etiquetaRepository.existsById(id)) {
             return false;
 
         }
         etiquetaRepository.deleteById(id);
-            return true;
+        return true;
 
     }
 }
