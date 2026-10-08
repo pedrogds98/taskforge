@@ -1,4 +1,4 @@
-package br.com.docodigoaocontrato.taskforge.dto;
+package br.com.docodigoaocontrato.taskforge.Exercicios2;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,10 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TarefaDTO {
 
+public class EtiquetaDTO {
     private Long id;
     private String nome;
-    private int prioridade;
-    private boolean concluida;
+    private String cor;
 }

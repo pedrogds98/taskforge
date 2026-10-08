@@ -6,7 +6,4 @@ public class Missao {
     public Missao(String nome){
         this.nome = nome;
     }
-
-
-
 }

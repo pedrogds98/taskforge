@@ -1,18 +1,19 @@
 package br.com.docodigoaocontrato.taskforge.dto;
 
+import br.com.docodigoaocontrato.taskforge.model.Comentario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TarefaDTO {
-
+@Getter
+@Setter
+public class ComentarioDTO {
     private Long id;
-    private String nome;
-    private int prioridade;
-    private boolean concluida;
+    private String descricao;
+    private String autor;
+
+
 }

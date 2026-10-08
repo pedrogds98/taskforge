@@ -5,14 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TarefaDTO {
 
+public class UsuarioDTO {
     private Long id;
     private String nome;
-    private int prioridade;
-    private boolean concluida;
+    private String email;
+
+
 }

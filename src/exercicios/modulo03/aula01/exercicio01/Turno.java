@@ -21,8 +21,5 @@ public class Turno {
         Turnos t = Turnos.NOITE;
         IO.println("Turno: " + t);
         IO.println("Sem o getter: " + t.getDescricao());
-//addddd
-
     }
-
 }
