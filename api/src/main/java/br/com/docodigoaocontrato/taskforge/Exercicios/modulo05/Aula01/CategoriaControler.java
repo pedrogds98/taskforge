@@ -10,14 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/categorias")
 public class CategoriaControler {
     private final CategoriaService categoriaService;
-
     public CategoriaControler(CategoriaService categoriaService) {
         this.categoriaService = categoriaService;
     }
 
-    @GetMapping("/categorias/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<CategoriaDTO> buscarPorId(@PathVariable Long id) {
         Optional<CategoriaDTO> categoriaDT = categoriaService.buscarPorId(id);
         if (categoriaDT.isEmpty()) {
@@ -26,12 +26,12 @@ public class CategoriaControler {
         return ResponseEntity.status(HttpStatus.OK).body(categoriaDT.get());
     }
 
-    @GetMapping("/categorias/{id}")
+    @GetMapping("/{id}")
     public List<Categoria> ListarCategorias() {
         return categoriaService.ListarCategorias();
     }
 
-    @GetMapping("/categorias/ativas")
+    @GetMapping("/ativas")
     public List<Categoria> ListarCategoriaAtiva() {
         return categoriaService.ListarCategoriaAtiva();
     }
@@ -41,7 +41,7 @@ public class CategoriaControler {
         return categoriaService.ListarCategoriaDTO();
     }
 
-    @PostMapping("/categorias")
+    @PostMapping()
     public ResponseEntity<CategoriaDTO> criarCategoria(@RequestBody CategoriaDTO categoriaDTO) {
         CategoriaDTO categoriaCriada = categoriaService.criarCategoria(categoriaDTO);
         return ResponseEntity
@@ -49,7 +49,7 @@ public class CategoriaControler {
                 .body(categoriaCriada);
     }
 
-    @PutMapping("/categorias/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<CategoriaDTO> atualizarCategoria(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO) {
         Optional<CategoriaDTO> categoriaAtualizada = categoriaService.atualizarCategoria(categoriaDTO, id);
 
@@ -59,7 +59,7 @@ public class CategoriaControler {
         return ResponseEntity.status(HttpStatus.OK).body(categoriaAtualizada.get());
     }
 
-    @DeleteMapping("/categorias/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> deletarCategoria(@PathVariable Long id) {
         if (!categoriaService.deletarCategoria(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -67,7 +67,7 @@ public class CategoriaControler {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @GetMapping("/categorias/ativas")
+    @GetMapping("/ativas")
     public List<CategoriaDTO> listarAtivas() {
         return categoriaService.ListarAtivas();
     }
