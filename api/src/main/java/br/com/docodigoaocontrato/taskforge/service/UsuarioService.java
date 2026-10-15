@@ -1,14 +1,12 @@
 package br.com.docodigoaocontrato.taskforge.service;
 
 import br.com.docodigoaocontrato.taskforge.Repository.UsuarioRepository;
-import br.com.docodigoaocontrato.taskforge.dto.LoginDTO;
-import br.com.docodigoaocontrato.taskforge.dto.TokenDTO;
-import br.com.docodigoaocontrato.taskforge.dto.UsuarioCadastroDTO;
-import br.com.docodigoaocontrato.taskforge.dto.UsuarioDTO;
+import br.com.docodigoaocontrato.taskforge.dto.*;
 import br.com.docodigoaocontrato.taskforge.model.Usuario;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 @Service
@@ -37,18 +35,19 @@ public class UsuarioService {
         return Optional.of(toDTO(novoUsuario));
     }
 
-    public Optional<TokenDTO> login(LoginDTO dto) {
+   public Optional<LoginRespostaDTO> login (LoginDTO dto){
         Optional<Usuario> usuarioAut = usuarioRepository.findByEmail(dto.getEmail());
-        if (usuarioAut.isEmpty()) {
+        if (usuarioAut.isEmpty()){
             return Optional.empty();
         } else if (encoder.matches(dto.getSenha(), usuarioAut.get().getSenha())) {
-            String token = jwtService.gerarToken(dto.getEmail());
-            TokenDTO token2 = new TokenDTO();
-            token2.setToken(token);
-            return Optional.of(token2);
-        }
-        return Optional.empty();
-    }
+            String token = jwtService.gerarToken(dto.getEmail(), usuarioAut.get().getNome());
+            LoginRespostaDTO loginRespDTO = new LoginRespostaDTO();
+            loginRespDTO.setNome(usuarioAut.get().getNome());
+            loginRespDTO.setToken(token);
+            return Optional.of(loginRespDTO);
+
+        }return Optional.empty();
+   }
 
     public Optional<UsuarioDTO> desativar(Long id) {
         Optional<Usuario> usuarioInativo = usuarioRepository.findById(id);

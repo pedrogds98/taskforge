@@ -26,10 +26,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // quem entra SEM cracha:
                         .requestMatchers(HttpMethod.POST, "/usuarios/cadastrar", "/usuarios/login").permitAll()
-                        .requestMatchers("/usuarios/cadastrar").permitAll()
-                        .requestMatchers("/usuarios/desativar/{id}").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
-                        // todo o resto EXIGE cracha valido (sem esta linha, rota sem regra = 403):
+//                        .requestMatchers(HttpMethod.GET, "/tarefas").permitAll()
+                        .requestMatchers(HttpMethod.GET, ("/ping")).permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
