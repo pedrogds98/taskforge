@@ -9,10 +9,10 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class UsuarioDTO {
     private Long id;
     private String nome;
     private String email;
-
-
+    private Boolean ativo;
 }
