@@ -4,10 +4,10 @@ import br.com.docodigoaocontrato.taskforge.Exercicios2.Tarefa2DTO;
 import br.com.docodigoaocontrato.taskforge.dto.TarefaDTO;
 import br.com.docodigoaocontrato.taskforge.model.Tarefa;
 import br.com.docodigoaocontrato.taskforge.service.TarefaService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +22,7 @@ public class TarefaControler   {
     }
 
     @PostMapping ("/tarefas")
-    public ResponseEntity<TarefaDTO> criarTarefa(@RequestBody TarefaDTO TarefaDTO){
+    public ResponseEntity<TarefaDTO> criarTarefa(@Valid @RequestBody TarefaDTO TarefaDTO){
         TarefaDTO tarefaCriada = tarefaService.criarTarefa(TarefaDTO);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
