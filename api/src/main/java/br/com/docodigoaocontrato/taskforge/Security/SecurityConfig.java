@@ -27,8 +27,8 @@ public class SecurityConfig {
                         // quem entra SEM cracha:
                         .requestMatchers(HttpMethod.POST, "/usuarios/cadastrar", "/usuarios/login").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
-//                        .requestMatchers(HttpMethod.GET, "/tarefas").permitAll()
                         .requestMatchers(HttpMethod.GET, ("/ping")).permitAll()
+                        .requestMatchers("/error").permitAll()
 
                         .anyRequest().authenticated()
                 )
