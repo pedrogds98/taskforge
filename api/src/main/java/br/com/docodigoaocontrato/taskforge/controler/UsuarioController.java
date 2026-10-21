@@ -5,6 +5,7 @@ import br.com.docodigoaocontrato.taskforge.dto.LoginRespostaDTO;
 import br.com.docodigoaocontrato.taskforge.dto.UsuarioCadastroDTO;
 import br.com.docodigoaocontrato.taskforge.dto.UsuarioDTO;
 import br.com.docodigoaocontrato.taskforge.service.UsuarioService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<UsuarioDTO> cadastrar(@RequestBody UsuarioCadastroDTO usuarioCadastroDTO) {
+    public ResponseEntity<UsuarioDTO> cadastrar(@Valid @RequestBody UsuarioCadastroDTO usuarioCadastroDTO) {
         Optional<UsuarioDTO> usuarioNovo = usuarioService.cadastrar(usuarioCadastroDTO);
         if (usuarioNovo.isEmpty()) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
@@ -29,7 +30,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginRespostaDTO> login(@RequestBody LoginDTO dto) {
+    public ResponseEntity<LoginRespostaDTO> login(@Valid @RequestBody LoginDTO dto) {
         Optional<LoginRespostaDTO> usuarioAut = usuarioService.login(dto);
         if (usuarioAut.isEmpty()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
