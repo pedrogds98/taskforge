@@ -34,4 +34,6 @@ public class JwtService {
             return null;                          // cracha nao confiavel
         }
     }
+
+
 }
