@@ -2,6 +2,7 @@ package br.com.docodigoaocontrato.taskforge.service;
 
 import br.com.docodigoaocontrato.taskforge.Repository.TarefaRepository;
 import br.com.docodigoaocontrato.taskforge.dto.TarefaDTO;
+import br.com.docodigoaocontrato.taskforge.exception.TarefaNaoEncontrada;
 import br.com.docodigoaocontrato.taskforge.model.Tarefa;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +18,10 @@ public class TarefaService {
         this.tarefaRepository = tarefaRepository;
     }
 
-    public boolean deletartarefa(Long id) {
-        if (!tarefaRepository.existsById(id)) {
-            return false;
-        }
+    public void deletarTarefa(Long id) {
+        tarefaRepository.findById(id)
+                .orElseThrow(() -> new TarefaNaoEncontrada(id));
         tarefaRepository.deleteById(id);
-        return true;
     }
 
     public List<TarefaDTO> buscarTodos() {
@@ -37,21 +36,22 @@ public class TarefaService {
         return toDto(tarefaRepository.save(tarefa));
     }
 
-    public Optional buscarTarefa(Long id) {
-        return tarefaRepository.findById(id)
-                .map(Tarefa -> toDto(Tarefa));
+    public TarefaDTO buscarPorId(Long id){
+        Tarefa tarefaComId = tarefaRepository.findById(id)
+                .orElseThrow(() -> new TarefaNaoEncontrada(id));
+        return toDto(tarefaComId);
     }
 
-    public Optional<TarefaDTO> atualizarTarefa(Long id, TarefaDTO tarefaDTO) {
-        Optional<Tarefa> tarefaRecuperada = tarefaRepository.findById(id);
-        if (tarefaRecuperada.isPresent()) {
-            Tarefa tarefa = tarefaRecuperada.get();
+
+    public TarefaDTO atualizarTarefa(Long id, TarefaDTO tarefaDTO) {
+        Tarefa tarefaRecuperada = tarefaRepository.findById(id)
+                .orElseThrow(()-> new TarefaNaoEncontrada(id));
+            Tarefa tarefa = tarefaRecuperada;
             tarefa.setNome(tarefaDTO.getNome());
             tarefa.setConcluida(tarefaDTO.isConcluida());
             tarefa.setPrioridade(tarefaDTO.getPrioridade());
-            return Optional.of(toDto(tarefaRepository.save(tarefa)));
-        }
-        return Optional.empty();
+            return toDto(tarefaRepository.save(tarefa));
+
     }
 
 //    public List<TarefaDTO> buscarTodos(boolean concluidas) {
@@ -90,12 +90,6 @@ public class TarefaService {
                 .toList();
     }
 
-    public Optional<TarefaDTO> buscarPorId(Long id){
-        Optional<Tarefa> tarefaComId = tarefaRepository.findById(id);
-        if (tarefaComId.isEmpty()){
-            return Optional.empty();
-        }
-        return Optional.of(toDto(tarefaComId.get()));
-    }
+
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class TarefaControler   {
+public class TarefaControler {
 
     private final TarefaService tarefaService;
 
@@ -21,63 +21,54 @@ public class TarefaControler   {
         this.tarefaService = tarefaService;
     }
 
-    @PostMapping ("/tarefas")
-    public ResponseEntity<TarefaDTO> criarTarefa(@Valid @RequestBody TarefaDTO TarefaDTO){
+    @PostMapping("/tarefas")
+    public ResponseEntity<TarefaDTO> criarTarefa(@Valid @RequestBody TarefaDTO TarefaDTO) {
         TarefaDTO tarefaCriada = tarefaService.criarTarefa(TarefaDTO);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(tarefaCriada);
     }
 
-    @GetMapping ("/tarefas")
-    public List<TarefaDTO> listar(){
+    @GetMapping("/tarefas")
+    public List<TarefaDTO> listar() {
         return tarefaService.buscarTodos();
     }
 
-    @GetMapping ("/tarefas/total")
-    public String tarefas(){
+    @GetMapping("/tarefas/total")
+    public String tarefas() {
         return "Você tem 5 tarefas";
     }
 
     @GetMapping("/tarefas/exemplo")
-    public Tarefa2DTO tarefasExemplo(){
+    public Tarefa2DTO tarefasExemplo() {
         return (new Tarefa2DTO(3, "Estudar Java", 1, false));
     }
 
     @GetMapping("/tarefas/{id}")
-    public ResponseEntity<TarefaDTO> buscarTarefa(@PathVariable Long id){
-        Optional<TarefaDTO> tarefaDTO = tarefaService.buscarTarefa(id);
-        if(tarefaDTO.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(tarefaDTO.get());
+    public ResponseEntity<TarefaDTO> buscarPorId(@PathVariable Long id) {
+        TarefaDTO tarefaDTO = tarefaService.buscarPorId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(tarefaDTO);
     }
 
     @PutMapping("/tarefas/{id}")
     public ResponseEntity<TarefaDTO> atualizarTarefa(@PathVariable Long id, @RequestBody TarefaDTO tarefaDTO) {
-        Optional<TarefaDTO> tarefaAtualizada = tarefaService.atualizarTarefa(id, tarefaDTO);
-        if (tarefaAtualizada.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(tarefaAtualizada.get());
+        TarefaDTO tarefaAtualizada = tarefaService.atualizarTarefa(id, tarefaDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(tarefaAtualizada);
     }
 
     @DeleteMapping("/tarefas/{id}")
-    public ResponseEntity<Void> deletarTarefa (@PathVariable Long id) {
-
-        if (!tarefaService.deletartarefa(id)){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+    public ResponseEntity<Void> deletarTarefa(@PathVariable Long id) {
+        tarefaService.deletarTarefa(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @GetMapping("/tarefas/pendentes")
-    public List<Tarefa> buscarPendentes(){
+    public List<Tarefa> buscarPendentes() {
         return tarefaService.buscarPendentes();
     }
 
     @GetMapping("/tarefas/urgentes")
-    public List<Tarefa> buscarUrgentes(){
+    public List<Tarefa> buscarUrgentes() {
         return tarefaService.buscarUrgentes();
     }
 }
