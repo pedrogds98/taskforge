@@ -20,7 +20,7 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
-    @PostMapping("/cadastrar")
+    @PostMapping()
     public ResponseEntity<UsuarioDTO> cadastrar(@Valid @RequestBody UsuarioCadastroDTO usuarioCadastroDTO) {
         Optional<UsuarioDTO> usuarioNovo = usuarioService.cadastrar(usuarioCadastroDTO);
         if (usuarioNovo.isEmpty()) {

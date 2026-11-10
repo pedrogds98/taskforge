@@ -31,4 +31,10 @@ public class GlobalExceptionHandler {
                 "chaves, colchetes, aspas", Map.of());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resposta);
     }
+
+//    @ExceptionHandler(TarefaNaoEncontradaException.class)
+//    public ResponseEntity<ErroResposta> TratarTarefaNaoEncontrada(TarefaNaoEncontrada){
+//
+//    }
+
 }

@@ -7,7 +7,6 @@ import br.com.docodigoaocontrato.taskforge.model.Tarefa;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TarefaService {
@@ -18,10 +17,11 @@ public class TarefaService {
         this.tarefaRepository = tarefaRepository;
     }
 
-    public void deletarTarefa(Long id) {
+    public Boolean deletarTarefa(Long id) {
         tarefaRepository.findById(id)
                 .orElseThrow(() -> new TarefaNaoEncontrada(id));
         tarefaRepository.deleteById(id);
+        return true;
     }
 
     public List<TarefaDTO> buscarTodos() {

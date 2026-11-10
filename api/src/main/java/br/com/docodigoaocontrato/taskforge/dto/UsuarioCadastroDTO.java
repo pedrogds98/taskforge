@@ -15,7 +15,7 @@ public class UsuarioCadastroDTO {
     @NotBlank(message = "O nome é obrigatório")
     private String nome;
 
-    @Email(message = "O Email está inválido")
+    @Email(message = "O email está inválido")
     @NotBlank(message = "O email é obrigatório")
     private String email;
 
