@@ -1,5 +1,6 @@
 package br.com.docodigoaocontrato.taskforge.Security;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -12,6 +13,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -53,10 +55,12 @@ public class SecurityConfig {
         return http.build();
     }
     // A "lista de convidados" do CORS: quais sites (origens) podem chamar a API pelo navegador.
+    @Value("${app.cors.origins=http://localhost:5173}")
+    private String corsOrigins;
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5500", "http://localhost:5173"));     // o front (React, na 9.2)
+        config.setAllowedOrigins(Arrays.stream(corsOrigins.split(",")).map(String::trim).toList());     // o front (React, na 9.2)
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
 
