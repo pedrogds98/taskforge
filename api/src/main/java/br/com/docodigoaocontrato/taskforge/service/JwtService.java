@@ -8,8 +8,10 @@ import java.util.Date;
 
 public class JwtService {
 
-    private static final String SECRET = "ACESSO SECRETO PARA ENTRAR NO TASKFORGE";
-    private final SecretKey chave = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
+    private static final String SEGREDO = System.getenv()
+            .getOrDefault("JWT_SECRET", "uihuihgergsghrui");
+
+    private final SecretKey chave = Keys.hmacShaKeyFor(SEGREDO.getBytes(StandardCharsets.UTF_8));
     private static final long UMA_HORA = 1000L * 60 * 60;
 
     public String gerarToken(String email, String usuario) {

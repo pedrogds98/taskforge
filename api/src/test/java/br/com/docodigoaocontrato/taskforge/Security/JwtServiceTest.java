@@ -12,28 +12,29 @@ public class JwtServiceTest {
 
     @Test
     void deveDevolverOEmailDeQuemGerouOToken() {
-        // DADO que um email
-        String email = "teste@teste.com";
-        String usuario = "joao";
+//        DADO EMAIL:
+        String usuario = "Joao";
+        String email = "teste@gmail.com";
 
-        // QUANDO eu gero um token e depois leio o token de volta
+//        quando:
         String token = jwtService.gerarToken(email, usuario);
-        String emailDoToken = jwtService.validarObterEmail(token);
+        String emailToken = jwtService.validarObterEmail(token);
 
-        // ENTAO o email que retorna é o mesmo que entrou
-        assertEquals(email, emailDoToken);
+//        então:
+        assertEquals(email, emailToken);
     }
 
     @Test
     void deveDevolverNullQuandoOTokenFoiAdulterado() {
-        // DADO que um token foi adulterado por alguem
-        String token = jwtService.gerarToken("teste@teste.com", "joao");
-        String tokenAdulterado = token.concat("adulterado");
+//        DADO:
+        String usuario = "joao";
+        String email = "joao@email.com";
 
-        // QUANDO eu tentar ler
-        String emailDoToken = jwtService.validarObterEmail(tokenAdulterado);
+//        Quando:
+        String token = jwtService.gerarToken(email, usuario);
+        String tokenAlterado = jwtService.validarObterEmail(token + 1);
 
-        // ENTAO
-        assertNull(emailDoToken);
+//        Então:
+        assertNull(tokenAlterado);
     }
 }
