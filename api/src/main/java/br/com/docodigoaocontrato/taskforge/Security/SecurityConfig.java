@@ -55,7 +55,7 @@ public class SecurityConfig {
         return http.build();
     }
     // A "lista de convidados" do CORS: quais sites (origens) podem chamar a API pelo navegador.
-    @Value("${app.cors.origins=http://localhost:5173}")
+    @Value("${app.cors.origins:http://localhost:5173}")
     private String corsOrigins;
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
