@@ -36,4 +36,4 @@ Tecnologias utilizadas
 
 - Render
 
-Cloudflare Pages
+- Cloudflare Pages
