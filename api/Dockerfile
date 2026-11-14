@@ -8,6 +8,6 @@ FROM eclipse-temurin:26-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
-ENV JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=65 -XX:UseSerialGC"
+ENV JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=65 -XX:+UseSerialGC"
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
