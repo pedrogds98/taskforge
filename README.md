@@ -6,6 +6,8 @@ Uma aplicação de gerenciamento de tarefas desenvolvida aula após aula, com o 
 
 📘 [Documentação da API (Swagger)](https://taskforge-7eqw.onrender.com/swagger-ui/index.html#/)
 
+📸 Tela da aplicação ![Tela inicial do TaskForge](docs/tela-inicial.png)
+
 Sobre o projeto
 
 O TaskForge é um projeto desenvolvido ao longo da mentoria Do Código ao Contrato, construído gradualmente, aula após aula, colocando em prática os conhecimentos adquiridos durante o curso.
