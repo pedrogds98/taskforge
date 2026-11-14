@@ -6,9 +6,9 @@ Uma aplicação de gerenciamento de tarefas desenvolvida aula após aula, com o 
 
 📘 [Documentação da API (Swagger)](https://taskforge-7eqw.onrender.com/swagger-ui/index.html#/)
 
+📸 Tela da aplicação 
 
-
-📸 Tela da aplicação ![Tela inicial do TaskForge](docs/tela-inicial.png)
+![Tela inicial do TaskForge](docs/tela-inicial.png)
 
 
 
