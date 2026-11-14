@@ -20,20 +20,20 @@ O projeto evoluiu para uma aplicação web integrada a uma API REST, com autenti
 
 Tecnologias utilizadas
 
-Java
+- Java
 
-Spring Boot
+- Spring Boot
 
-Spring Security e JWT
+- Spring Security e JWT
 
-React
+- React
 
-PostgreSQL
+- PostgreSQL
 
-Docker
+- Docker
 
-Maven
+- Maven
 
-Render
+- Render
 
 Cloudflare Pages
